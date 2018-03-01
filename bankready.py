@@ -1,4 +1,3 @@
-import cnv
 import urllib.request
 def main():
         print("Privet, etot skript pomozhet tebe rashitat pereplaty po kreditu. Sleduy instrukcii^^")
