@@ -96,8 +96,8 @@ def new_game():
         if player_hand.get_value() > 21:
             print("You lose")
             in_game = False
-            #raise SystemExit
-        else:
+            raise SystemExit
+        if ans == "s":
             print("You stand!")
             print("=" * 20)
             break
