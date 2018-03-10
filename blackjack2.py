@@ -96,25 +96,29 @@ def new_game():
         if player_hand.get_value() > 21:
             print("You lose")
             in_game = False
-            raise SystemExit
+            #raise SystemExit
         else:
             print("You stand!")
-        print("=" * 20)
-        if in_game:
+            print("=" * 20)
+            break
+    if in_game:
         # По правилам дилер обязан набирать карты пока его счет меньше 17
-            while dealer_hand.get_value() < 17:
-                dealer_hand.add_card(d.deal_card())
-                print(dealer_hand)
+        while dealer_hand.get_value() < 17:
+            dealer_hand.add_card(d.deal_card())
+            print(dealer_hand)
             # Если у дилера перебор играть дальше нет смысла - игрок выиграл
-                if dealer_hand.get_value() > 21:
-                    print("Dealer bust")
-                    in_game = False
-        if in_game:
+            if dealer_hand.get_value() > 21:
+                print("Dealer bust")
+                in_game = False
+                raise SystemExit
+    if in_game:
             # Ни у кого не было перебора - сравниваем количество очков у игрока и дилера.
             # В нашей версии если у дилера и игрока равное количество очков - выигрывает казино
-            if player_hand.get_value() > dealer_hand.get_value():
-                print("You win")
-            else:
-                print("Dealer win")
+        if player_hand.get_value() > dealer_hand.get_value():
+            print("You win")
+            raise SystemExit
+        else:
+            print("Dealer win")
+            raise SystemExit
 
 new_game()
